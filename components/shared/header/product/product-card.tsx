@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import ProductPrice from "./product-price";
 
 const ProductCard = ({ product }: { product: any}) => {
     return ( 
@@ -22,21 +23,21 @@ const ProductCard = ({ product }: { product: any}) => {
                     <h2 className="text-sm font-medium">{product.name}</h2>
                 </Link>
                 <div className="between gap-4">
-                    <p>
+                    <div>
                         {product.rating} Stars
                         { product.stock > 0 ? (
-                            <p className="font-bold">{ product.price }</p>
+                            <ProductPrice value={Number(product.price)}/>
                         ): (
                             <p className="text-destructive">Out of Stocks</p>
                         )
 
                         }
-                    </p>
+                    </div>
                 </div>
             </CardContent>
             
         </Card>
-     );
+        );
 }
- 
+
 export default ProductCard;
