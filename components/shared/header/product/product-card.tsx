@@ -22,17 +22,14 @@ const ProductCard = ({ product }: { product: any}) => {
                 <Link href={`/product/${product.slug}`}>
                     <h2 className="text-sm font-medium">{product.name}</h2>
                 </Link>
-                <div className="between gap-4">
-                    <div>
-                        {product.rating} Stars
+                <div className="flex-between gap-4">
+                        <p>{product.rating} Stars</p>
                         { product.stock > 0 ? (
                             <ProductPrice value={Number(product.price)}/>
                         ): (
-                            <p className="text-destructive">Out of Stocks</p>
+                            <p className="text-destructive align-center">Out of Stocks</p>
                         )
-
                         }
-                    </div>
                 </div>
             </CardContent>
             
